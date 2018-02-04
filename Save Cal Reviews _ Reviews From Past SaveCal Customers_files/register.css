@@ -1,0 +1,210 @@
+@charset "utf-8";
+/* CSS Document */
+@import url(//fonts.googleapis.com/css?family=Open+Sans:400,700,600);
+@import url(//fonts.googleapis.com/css?family=Oswald:400,300);
+.register_wrapper
+{
+background:url(../img/register_bg.jpg) no-repeat center center fixed;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
+
+.conatiner_reg
+{
+margin:auto;
+position:relative;
+}
+
+.register_inner
+{
+width:655px;
+border:2px #ebedf0 solid;
+padding:25px;
+background:#fff;
+-webkit-border-radius: 13px;
+-moz-border-radius: 13px;
+margin:90px  auto 90px auto;
+border-radius: 13px;
+min-height:500px;
+}
+.review_inner
+{
+width:auto;
+border:2px #ebedf0 solid;
+padding:25px;
+background:#fff;
+-webkit-border-radius: 13px;
+-moz-border-radius: 13px;
+margin:20px  auto 30px auto;
+border-radius: 13px;
+min-height:500px;
+}
+.review_inner .services_top{ padding:10px 0;}
+.review_inner .register_form {text-align: center;}
+.review_inner form{display: inline-block;}
+.review_inner .p_details{ width:59%;}
+.review_inner .content_right_profile{width:auto; max-width:255px;}
+
+.confirm_wrapper
+{
+width:600px;
+border:2px #ebedf0 solid;
+padding:25px;
+background:#fff;
+-webkit-border-radius: 13px;
+-moz-border-radius: 13px;
+margin: 140px auto 60px;
+border-radius: 13px;
+min-height:360px;
+font-family: 'Open Sans', sans-serif;
+font-size:17px;
+}
+.confirm_wrapper a, .confirm_wrapper a:hover
+{
+text-decoration:none;
+color:#1185bb;
+}
+.left_people
+{
+	position: absolute;
+	left: 58px;
+	top: 176px;
+}
+.right_people
+{
+	position: absolute;
+	right: 58px;
+	top: 182px;
+}
+.close_icon
+{
+float:right;
+margin:0px 15px 0 0;
+}
+.register_form
+{
+padding:0px;
+margin:0px;
+}
+.center
+{
+text-align:center;
+color:#000000;
+font-family: 'Open Sans', sans-serif;
+font-size:20px;
+font-weight:400;
+}
+.all_fields
+{
+color:#000000;
+font-family: 'Open Sans', sans-serif;
+font-size:14px;
+}
+.register_form input[type="text"], .register_form input[type="password"], .register_form  select
+{
+width:277px;
+float:left;
+padding:5px;
+height:29px;
+margin-bottom:18px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+border:1px #cacaca solid;
+}
+.register_form textarea
+{
+width:581px;
+float:left;
+padding:5px;
+height:70px;
+margin-bottom:18px;
+font-family: 'Open Sans', sans-serif;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+border:1px #cacaca solid;
+}
+.register_form  select
+{
+ height: 40px;
+width: 290px;
+}
+.register_form .right_field
+{
+margin-left:13px;
+}
+.register_form .full
+{
+width:581px !important;
+}
+
+.form_bottom
+{
+text-align:center;
+}
+.form_bottom
+{
+color:#6c6c6c;
+font-family: 'Open Sans', sans-serif;
+font-size:15px;
+}
+.form_bottom a
+{
+color:#1185bb;
+text-decoration:underline;
+}
+.form_bottom a:hover
+{
+color:#025880;
+text-decoration:none;
+}
+.form_bottom .sub_btn
+{
+background: #1185bb;
+outline: none;
+border: none;
+margin-top: 17px;
+cursor: pointer;
+width: 274px;
+color: #fff;
+text-align: center;
+font-family: 'Oswald', sans-serif;
+font-size: 30px;
+text-transform: uppercase;
+-webkit-border-radius: 40px;
+-moz-border-radius: 40px;
+border-radius: 40px;
+}
+.form_bottom .sub_btn2
+{
+background: #1185bb;
+outline: none;
+border: none;
+margin-top: 17px;
+cursor: pointer;
+height:53px;
+width: 274px;
+color: #fff;
+text-align: center;
+font-family: 'Oswald', sans-serif;
+font-size: 30px;
+text-transform: uppercase;
+-webkit-border-radius: 40px;
+-moz-border-radius: 40px;
+border-radius: 40px;
+}
+.form_bottom .sub_btn:hover
+{
+background:#01699a;
+}
+.form_bottom .sub_btn2:hover
+{
+background:#01699a;
+}
+
+/*jitendra*/
+.error-message{color:red; font-size:12px;}
+.acceptchk{display:none;color:red}

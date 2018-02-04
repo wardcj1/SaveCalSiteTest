@@ -1,0 +1,60 @@
+(function(window, document, undefined) {
+  "use strict";
+  // URL parsing
+  var a = document.createElement('a');
+  var i;
+  var script;
+  // IE8+ so no slice/map/filter
+  for (i = 0; i < document.scripts.length; ++i) {
+    script = document.scripts[i];
+    var include =
+      (/\bembed\.broadly\.\w+\/include\.js/.test(script.src)) ||
+      (/\bbroadly\.\w+\/embed\/include\.js/.test(script.src));
+    if (include && script.getAttribute('data-url') && !script.xhr) {
+      a.href = script.src;
+      embed(script, a.hostname);
+    }
+  }
+
+  function embed(script, hostname) {
+    var dataURL = script.getAttribute('data-url');
+    // Remove smart quotes and spaces.
+    var url     = dataURL.replace(/[\s\u201c\u201d\u201f\u2033\u2036]/g, '');
+    if (url.indexOf('//') === 0)
+      url = document.location.protocol + url;
+    else if (url.indexOf('/') === 0)
+      url = document.location.protocol + '//' + hostname + url;
+    url = url.replace('//broadly.com/embed/', '//embed.broadly.com/');
+    // IE8/9 use XDR, all others use XHR
+    var xhr = ('XDomainRequest' in window) ? new XDomainRequest() : new XMLHttpRequest();
+    // This will prevent us from running the script twice
+    script.xhr = xhr;
+
+    function update(content) {
+      script.insertAdjacentHTML('afterend', content);
+    }
+
+    if (xhr.onreadystatechange === null)
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4)
+          if (xhr.status === 200 || xhr.status === 404)
+            update(xhr.responseText);
+          else
+            console.error('Error retrieving: ', url, xhr.status);
+      };
+    else // IE XDR doesn't have onreadystatechange
+      xhr.onload = function() {
+        update(xhr.responseText);
+      };
+    xhr.onerror = function() {
+      console.error('Error retrieving: ', url);
+    };
+    xhr.ontimeout = function() {
+      console.error('Timeout retrieving: ', url);
+    };
+
+    xhr.open('GET', url);
+    xhr.send();
+  }
+
+})(this, document);

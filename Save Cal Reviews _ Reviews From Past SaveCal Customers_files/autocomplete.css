@@ -1,0 +1,70 @@
+
+.acResults {
+	padding: 5px;
+	border: 3px solid windowframe;
+	background-color: #fff;
+	overflow: hidden;
+	margin-top: 19px;
+	border-radius:10px;
+}
+
+.acResults ul {
+	margin: 0px;
+	padding: 0px;
+	list-style-position: outside;
+	list-style: none;	
+}
+
+.acResults ul li {
+	 margin-top: 2px;
+	padding: 8px 10px;
+	cursor: pointer;
+	display: block;
+	font: menu;
+	font-size: 18px;
+	overflow: hidden;
+	color: #222222;	
+	border-radius:10px;
+	border:solid 1px #fff;
+}
+.acResults ul a {
+	 margin-top: 2px;
+	padding: 8px 10px;
+	cursor: pointer;
+	display: block;
+	font: menu;
+	font-size: 18px;
+	overflow: hidden;
+	color: #222222;	
+	border-radius:10px;
+	border:solid 1px #fff;
+}
+
+.acResults li:hover {
+    background: none repeat scroll 0 0 #CCCCCC;
+    border:solid 1px #333;
+}
+.acResults li:focus {
+    background: none repeat scroll 0 0 #CCCCCC;
+    border:solid 1px #333;
+}
+
+.acResults li:active, .acResults li:visited {
+    background: none repeat scroll 0 0 #CCCCCC;
+    border:solid 1px #333;
+}
+
+.jquery-autocomplete-selected-item.acSelect{
+	/* background: none repeat scroll 0 0 #CCCCCC;
+    border:solid 1px #333; */
+}
+
+.acLoading {
+	background : url('../img/supportindicator.gif') right center no-repeat;
+}
+
+.acSelect {
+	/* background-color: #093d64; */
+	color: white;
+}
+

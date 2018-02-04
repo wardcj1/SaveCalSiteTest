@@ -1,0 +1,309 @@
+//validate contact Form
+function checkFormValidation(){	
+	error = 0;
+	$("#name").css('border','1px solid #B0B0B0');	
+	$("#email").css('border','1px solid #B0B0B0');	
+	$("#message").css('border','1px solid #B0B0B0');	
+	
+	if($.trim($("#name").val()) == ""){
+		 $("#name").css('border','1px solid red');		
+		 error++;
+	}
+	if($.trim($("#email").val()) == ""){
+		 $("#email").css('border','1px solid red');		
+		 error++;
+	}else{
+		 var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+		  if( !emailReg.test( $("#email").val() ) ) {
+			  $("#email").css('border','1px solid red');
+			  $("#contactemailmsg").show();		
+			  error++;
+		  }
+	}
+	if($.trim($("#message").val()) == ""){
+		 $("#message").css('border','1px solid red');		
+		 error++;
+	}
+	if(error==0){
+		return true;
+	}else{
+		return false;
+	}	
+}
+
+// select the employer for review
+function storeSelectedEmplyeee(empid){
+	$('#selected_employer').val(empid);
+	$( "#selectEmployee" ).submit();
+}
+
+//
+function confirmServiceProfessionalValidator(){
+	error = 0;
+	$("#c_name").css('border','1px solid #B0B0B0');	
+	$("#c_email").css('border','1px solid #B0B0B0');	
+	
+	if($("#star_rating").val() == ""){
+		$("#ratingstarmsg").show();		
+		error++;
+	}else{
+		$("#ratingstarmsg").hide();		
+	}
+	
+	if($.trim($("#c_name").val()) == ""){
+		 $("#c_name").css('border','1px solid red');		
+		 error++;
+	}
+	if($.trim($("#c_email").val()) == ""){
+		 $("#c_email").css('border','1px solid red');		
+		 error++;
+	}else{
+		 var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+		  if( !emailReg.test( $.trim($("#c_email").val()) ) ) {
+			  $("#c_email").css('border','1px solid red');
+			  $("#emailmsg").show();		
+			  error++;
+		  }else{
+			  $("#emailmsg").hide();	
+		  }
+	}	
+	if(error==0){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+
+//validate review form
+function reviewFormValidator(){
+	error = 0;
+	$("#customer_name").css('border','1px solid #B0B0B0');	
+	$("#customer_email").css('border','1px solid #B0B0B0');	
+	$("#date_of_service").css('border','1px solid #B0B0B0');
+	//$("#time_of_service").css('border','1px solid #B0B0B0');
+	$("#description").css('border','1px solid #B0B0B0');
+	//$("#EmployerPhone").css('border','1px solid #B0B0B0');	
+	
+	if($.trim($("#customer_name").val()) == ""){
+		 $("#customer_name").css('border','1px solid red');		
+		 error++;
+	}
+	/*if($("#EmployerPhone").val() != ""){
+		var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/; 
+		if(!$("#EmployerPhone").val().match(phoneno))  
+	    {  
+			$("#EmployerPhone").css('border','1px solid red');		
+			 error++;    
+	    }  
+	}*/
+	if($.trim($("#customer_email").val()) == ""){
+		 $("#customer_email").css('border','1px solid red');		
+		 error++;
+	}else{
+		 var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+		  if( !emailReg.test( $.trim($("#customer_email").val()) ) ) {
+			  $("#customer_email").css('border','1px solid red');
+			  $("#reviewemailmsg").show();		
+			  error++;
+		  }else{
+			  $("#reviewemailmsg").hide();	
+		  }
+	}
+	if($.trim($("#date_of_service").val()) == ""){
+		 $("#date_of_service").css('border','1px solid red');		
+		 error++;
+	}
+	/*if($.trim($("#time_of_service").val()) == ""){
+		 $("#time_of_service").css('border','1px solid red');		
+		 error++;
+	}*/
+	if($.trim($("#description").val()) == ""){
+		 $("#description").css('border','1px solid red');		
+		 error++;
+	}
+	if(error==0){
+		return true;
+	}else{
+		return false;
+	}	
+}
+
+// validate forgot password form
+function checkForgetFormValidation(){
+	error = 0;
+	$("#forgetemail").css('border','1px solid #B0B0B0');	
+	
+	if($.trim($("#forgetemail").val()) == ""){
+		 $("#forgetemail").css('border','1px solid red');		
+		 error++;
+	}else{
+		 var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+		  if( !emailReg.test( $.trim($("#forgetemail").val()) ) ) {
+			  $("#forgetemail").css('border','1px solid red');
+			  $("#forgetemailmsg").html('Please enter valid email.')
+			  $("#forgetemailmsg").show();		
+			  error++;
+		  }else{
+			  $("#reviewemailmsg").hide();	
+		  }
+	}
+	
+	if(error==0){
+		return true;
+	}else{
+		return false;
+	}	
+	
+}
+
+$(function(){
+	$('.main_form').css('display','none');
+	
+	var isMobile = false;
+	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+	  // tasks to do if it is a Mobile Device
+	  isMobile = true;
+	 
+	}
+	
+
+	/*if(isMobile) {
+		  
+		$('#targetKeep').raty({
+		  cancel     : false,
+		  target     : '#targetKeep-hint',
+		  targetKeep : true,
+		  mouseover: function(score, evt) {
+			//alert('ID: ' + this.id + "\nscore: " + score + "\nevent: " + evt);
+			$('#star_rating').val(score);
+			$('.main_form').css('display','block');
+		  }
+		});
+		
+	} else {*/
+		
+		/*jQuery('#targetKeep').raty({
+		  cancel     : false,
+		  target     : '#targetKeep-hint',
+		  targetKeep : true,
+		   click: function(score, evt) {
+			//alert('ID: ' + this.id + "\nscore: " + score + "\nevent: " + evt);
+			$('#star_rating').val(score);
+			$('.main_form').css('display','block');
+		  }
+		});*/
+		
+		
+	/*}*/
+
+
+	/*if(isMobile) {
+		$('.rating label').mouseover(function(){
+				starrating = $(this).prev('input').prop('value');
+				$('#star_rating').val(starrating);
+				$('.main_form').css('display','block');
+		});
+		$('.rating label').mouseout(function(){
+				starrating = $(this).prev('input').prop('value');
+				$('#star_rating').val(starrating);
+				$('.main_form').css('display','block');
+		});
+	} else {
+		$('.rating input').click(function(){
+			starrating = $(this).prop('value');
+			$('#star_rating').val(starrating);
+			$('.main_form').css('display','block');
+		});
+	}
+	
+	// showing the rating star text on mouse hover
+	$('.rating label').mouseover(function(){		
+		starrating = $(this).prop('for');		
+		if(starrating=="star1")
+			txt = "Poor";
+		else if(starrating=="star2")
+			txt = "Disliked";
+		else if(starrating=="star3")
+			txt = "Okay";
+		else if(starrating=="star4")
+			txt = "Liked";
+		else if(starrating=="star5")
+			txt = "Really Liked";
+		
+		$('.rating-hover-pop').show();
+		$('.rating-hover-pop').html(txt);		
+	});
+	$('.rating label').mouseout(function(){
+		$('.rating-hover-pop').hide();
+	});
+	*/
+	// showing employer list according department in service professionl page
+	$('.breadcrumb ul>li>a').click(function(){
+		deptID = $(this).prop('id');
+		$('.breadcrumb ul>li>a').removeClass('active');
+		$(this).addClass('active');
+		$("[id^='department-']").hide();
+		$('#department-'+deptID).show();
+	});
+	
+	// open popup in social link page
+	$(".review_pop").fadeOut();
+	$(".review_btn").click(function(){
+		$(".review_pop").fadeIn();				
+		$("html, body").animate({ scrollTop: 0 }, "slow"); 
+		// save review for which social media 
+		value = $(this).prop('name');		
+		$('#social_media_rating').val(value);
+		var isApproved = $('#isApproved').val();
+		var frmData={empolyerDetailArray:empolyerDetailArray,sid:value,isApproved:isApproved}
+		$.ajax({
+            url: SiteUrl+"employers/submitReviewByAjax",
+			type: "post",
+            dataType: "json",
+            data: frmData,
+            success: function(data) {
+				if(data.status == 1){
+					 	var review_id = data.review_id;
+                        $('#review_id').val(review_id);						
+				}else{
+					
+				}
+            }
+        });
+	});
+	
+	// submit 'yes' and 'no' option for review confirm popup
+	$(".review_pop .btns a.con_btn").click(function(){
+		value = $(this).prop('name');
+		if(value=='yes') {
+			$(".review_pop .head").text('Would you like to review us on another site?');
+			$(".first").css('display','none');
+			$(".second").css('display','block');
+		}else if(value=='complete') {
+			$('#is_approved').val('yes');
+			$(".second").html('Please wait...');
+			$("#leavereview").submit();
+		} else {
+			$('#is_approved').val(value);
+			$(".second").html('Please wait...');
+			$("#leavereview").submit();
+		}
+	});	
+	
+	// add calender to date of service in review form
+	
+	 $( "#date_of_service" ).datepicker({
+	      changeMonth: true,
+	      changeYear: true,
+	      maxDate: new Date
+	 });
+	 
+	 $( "#rdate" ).datepicker({
+	      changeMonth: true,
+	      changeYear: true
+	 });
+	 
+	 //$("#date_of_service").datepicker({ , minDate: new Date(2007, 6, 12) });
+	
+});
